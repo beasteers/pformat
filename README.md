@@ -19,15 +19,15 @@ pip install pformat
 import pformat as pf
 
 # partial formatting
-result = pformat('/blah/blorp/{time:.2f}/{id}.csv', id=100)
+result = pf.pformat('/blah/blorp/{time:.2f}/{id}.csv', id=100)
 assert result == '/blah/blorp/{time:.2f}/100.csv'
 
 # glob formatting
-result = pformat('/blah/blorp/{time:.2f}/{id}.csv', time=time.time())
+result = pf.gformat('/blah/blorp/{time:.2f}/{id}.csv', time=time.time())
 assert result == '/blah/blorp/1500000.00/*.csv'
 
 # default formatting
-result = pformat('/blah/blorp/{time:.2f}/{id._[thing]}.csv', time=time.time())
+result = pf.dformat('/blah/blorp/{time:.2f}/{id._[thing]}.csv', time=time.time())
 assert result == '/blah/blorp/1500000.00/thing.csv'
 
 ```
